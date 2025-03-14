@@ -3,16 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "start": "live-server --port=3000 --no-browser",
-    "build": "node ./node_modules/tailwindcss/lib/cli.js -i ./src/input.css -o ./public/styles.css --minify",
-    "watch": "node ./node_modules/tailwindcss/lib/cli.js -i ./src/input.css -o ./public/styles.css --watch"
-  },
+"scripts": {
+  "start": "live-server --port=3000 --no-browser",
+  "build": "npx rimraf dist && mkdir dist && xcopy public dist /E /I && node ./node_modules/tailwindcss/lib/cli.js -i ./src/input.css -o ./dist/styles.css --minify",
+  "watch": "node ./node_modules/tailwindcss/lib/cli.js -i ./src/input.css -o ./dist/styles.css --watch"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "live-server": "^1.2.2",
+    "rimraf": "^6.0.1",
     "tailwindcss": "^3.4.1"
   }
 }
