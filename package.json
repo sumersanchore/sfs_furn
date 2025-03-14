@@ -5,7 +5,7 @@
   "main": "index.js",
 "scripts": {
   "start": "live-server --port=3000 --no-browser",
-  "build": "npx rimraf dist && mkdir dist && xcopy public dist /E /I && node ./node_modules/tailwindcss/lib/cli.js -i ./src/input.css -o ./dist/styles.css --minify",
+  "build": "npx rimraf dist && mkdir dist && cp -r public/* dist/ && node ./node_modules/tailwindcss/lib/cli.js -i ./src/input.css -o ./dist/styles.css --minify",
   "watch": "node ./node_modules/tailwindcss/lib/cli.js -i ./src/input.css -o ./dist/styles.css --watch"
 },
   "keywords": [],
