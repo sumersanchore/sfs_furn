@@ -2,11 +2,14 @@
 module.exports = {
   content: [
     "./*.html",
-    "./js/**/*.js"
+    "./js/*.js"
   ],
-  darkMode: 'class',
   theme: {
     extend: {
+      colors: {
+        primary: '#1a1a1a',
+        secondary: '#ffffff'
+      },
       screens: {
         'xs': '375px',
         'sm': '640px',
@@ -15,15 +18,8 @@ module.exports = {
         'xl': '1280px',
         '2xl': '1536px',
       },
-      height: {
-        '18': '4.5rem',
-      },
-      spacing: {
-        '18': '4.5rem',
-      },
-      maxWidth: {
-        '8xl': '88rem',
-        '9xl': '96rem',
+      fontFamily: {
+        raleway: ['Raleway', 'sans-serif'],
       },
     },
   },
