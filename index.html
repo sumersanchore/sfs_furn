@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sachiya Furniture | Premium Wooden Creations</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind Config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a1a1a',
+                        secondary: '#ffffff'
+                    },
+                    screens: {
+                        'xs': '375px',
+                        'sm': '640px',
+                        'md': '768px',
+                        'lg': '1024px',
+                        'xl': '1280px',
+                        '2xl': '1536px',
+                    },
+                    fontFamily: {
+                        raleway: ['Raleway', 'sans-serif'],
+                    },
+                }
+            }
+        };
+    </script>
+
+    <!-- Base Styles -->
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        /* Navigation Link Styles */
+        .nav-link {
+            @apply relative hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200;
+        }
+        
+        /* Mobile Menu Animation */
+        .menu-transition {
+            @apply transition-all duration-300 ease-in-out;
+        }
+        
+        /* Social Media Icons */
+        .social-icon {
+            @apply text-2xl transition-transform duration-200 hover:scale-110;
+        }
+    </style>
+</head>
+
+<body class="bg-white dark:bg-primary text-gray-900 dark:text-white transition-colors duration-300">
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg">
+        <nav class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-12 md:h-12">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2">
+                    <img src="assets/logo/logo.svg" alt="Sachiya Furniture" 
+                         class="h-8 md:h-10 w-auto object-contain dark:hidden"
+                         onerror="this.onerror=null; this.src='assets/logo/logo.png'">
+                    <img src="assets/logo/darklogo.svg" alt="Sachiya Furniture" 
+                         class="h-8 md:h-10 w-auto object-contain hidden dark:block"
+                         onerror="this.onerror=null; this.src='assets/logo/darklogo.png'">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#hero" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#collections" class="nav-link">Collections</a>
+                    <a href="#testimonials" class="nav-link">Testimonials</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center space-x-4">
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" 
+                            class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200">
+                        <svg class="w-6 h-6 dark:hidden" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                        <svg class="w-6 h-6 hidden dark:block" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                        </svg>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button" 
+                            class="block lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200">
+                        <div class="w-5 h-4 sm:w-6 sm:h-5 flex flex-col justify-between">
+                            <span class="block w-full h-0.5 bg-gray-600 dark:bg-gray-300 transition-all duration-300"></span>
+                            <span class="block w-full h-0.5 bg-gray-600 dark:bg-gray-300 transition-all duration-300"></span>
+                            <span class="block w-full h-0.5 bg-gray-600 dark:bg-gray-300 transition-all duration-300"></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 lg:hidden invisible">
+        <!-- Backdrop -->
+        <div id="mobile-backdrop" 
+             class="fixed inset-0 bg-black/50 opacity-0 transition-opacity duration-300 backdrop-blur-sm">
+        </div>
+
+        <!-- Menu Panel -->
+        <div id="menu-panel" 
+             class="fixed right-0 top-0 h-full w-full xs:w-[85%] sm:w-[70%] md:w-[60%] lg:w-[50%] 
+                    bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-2xl 
+                    transform translate-x-full menu-transition">
+            
+            <div class="flex flex-col h-full">
+                <!-- Menu Header -->
+                <div class="flex items-center justify-between p-6 border-b dark:border-gray-800/50">
+                    <a href="#" class="flex items-center">
+                        <img src="assets/logo/logo.svg" alt="Sachiya Furniture" 
+                             class="h-10 w-auto object-contain dark:hidden"
+                             onerror="this.onerror=null; this.src='assets/logo/logo.png'">
+                        <img src="assets/logo/darklogo.svg" alt="Sachiya Furniture" 
+                             class="h-10 w-auto object-contain hidden dark:block"
+                             onerror="this.onerror=null; this.src='assets/logo/darklogo.png'">
+                    </a>
+                    <button id="close-menu" 
+                            class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 
+                                   transition-all duration-200 active:scale-95">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="w-full py-4">
+                    <div class="flex flex-col w-full">
+                        <a href="#hero" class="mobile-nav-link flex items-center w-full px-6 py-4 text-lg font-medium
+                                             border-b dark:border-gray-800/30 hover:bg-gray-50 dark:hover:bg-gray-800/50 
+                                             transition-all duration-200 hover:pl-8">
+                            <span class="mr-4">🏠</span> Home
+                        </a>
+                        <a href="#about" class="mobile-nav-link flex items-center w-full px-6 py-4 text-lg font-medium
+                                              border-b dark:border-gray-800/30 hover:bg-gray-50 dark:hover:bg-gray-800/50 
+                                              transition-all duration-200 hover:pl-8">
+                            <span class="mr-4">ℹ️</span> About
+                        </a>
+                        <a href="#collections" class="mobile-nav-link flex items-center w-full px-6 py-4 text-lg font-medium
+                                                   border-b dark:border-gray-800/30 hover:bg-gray-50 dark:hover:bg-gray-800/50 
+                                                   transition-all duration-200 hover:pl-8">
+                            <span class="mr-4">🪑</span> Collections
+                        </a>
+                        <a href="#testimonials" class="mobile-nav-link flex items-center w-full px-6 py-4 text-lg font-medium
+                                                    border-b dark:border-gray-800/30 hover:bg-gray-50 dark:hover:bg-gray-800/50 
+                                                    transition-all duration-200 hover:pl-8">
+                            <span class="mr-4">⭐</span> Testimonials
+                        </a>
+                        <a href="#contact" class="mobile-nav-link flex items-center w-full px-6 py-4 text-lg font-medium
+                                               border-b dark:border-gray-800/30 hover:bg-gray-50 dark:hover:bg-gray-800/50 
+                                               transition-all duration-200 hover:pl-8">
+                            <span class="mr-4">📞</span> Contact
+                        </a>
+                    </div>
+                </nav>
+
+                <!-- Social Media -->
+                <div class="mt-auto p-6 border-t dark:border-gray-800/50">
+                    <h3 class="text-lg font-semibold mb-4 text-center">Connect With Us</h3>
+                    <div class="flex justify-center space-x-6">
+                        <a href="#" class="social-icon text-gray-600 dark:text-gray-400 hover:text-blue-600">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon text-gray-600 dark:text-gray-400 hover:text-pink-600">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon text-gray-600 dark:text-gray-400 hover:text-blue-400">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon text-gray-600 dark:text-gray-400 hover:text-blue-700">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon text-gray-600 dark:text-gray-400 hover:text-red-600">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // DOM Elements
+        const elements = {
+            mobileMenuButton: document.getElementById('mobile-menu-button'),
+            mobileMenu: document.getElementById('mobile-menu'),
+            menuPanel: document.getElementById('menu-panel'),
+            mobileBackdrop: document.getElementById('mobile-backdrop'),
+            closeMenuButton: document.getElementById('close-menu'),
+            themeToggle: document.getElementById('theme-toggle')
+        };
+
+        // Menu Functions
+        const menuActions = {
+            open: () => {
+                elements.mobileMenu.classList.remove('invisible');
+                setTimeout(() => {
+                    elements.mobileBackdrop.classList.add('opacity-100');
+                    elements.menuPanel.classList.remove('translate-x-full');
+                    elements.mobileMenuButton.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }, 10);
+            },
+            close: () => {
+                elements.mobileBackdrop.classList.remove('opacity-100');
+                elements.menuPanel.classList.add('translate-x-full');
+                elements.mobileMenuButton.classList.remove('active');
+                setTimeout(() => {
+                    elements.mobileMenu.classList.add('invisible');
+                    document.body.style.overflow = '';
+                }, 300);
+            }
+        };
+
+        // Event Listeners
+        elements.mobileMenuButton.addEventListener('click', menuActions.open);
+        elements.closeMenuButton.addEventListener('click', menuActions.close);
+        elements.mobileBackdrop.addEventListener('click', menuActions.close);
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', menuActions.close);
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) menuActions.close();
+        });
+
+        // Theme Toggle
+        elements.themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        });
+    </script>
+</body>
+</html>
